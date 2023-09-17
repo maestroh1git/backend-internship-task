@@ -1,47 +1,44 @@
-## ![Dive logo](https://user-images.githubusercontent.com/424487/219708981-f0416526-ba48-4b01-b5b3-c0eb73362718.png) Dive 
-<!-- ![Company Logo](https://example.org) -->
+# Backend Internship Task Submission
 
-| Octernship info  | Timelines and Stipend |
-| ------------- | ------------- |
-| Assignment Deadline  | 19th June 2023  |
-| Octernship Duration  | 3rd July 2023 - 3rd October 2023 |
-| Monthly Stipend  | $500 USD  |
+## Code Overview
 
-## Assignment
+The code in this repo implements a Flask-based REST API for managing calorie entries. It provides routes for user registration, authentication, creating calorie entries, setting expected calorie per day and retrieving specific calorie entries.
+
+The code consists of the following files and folders:
+
+1. `flask_crud/models`: Contains the database models and schema.
+2. `flask_crud/routes`: Contains the routes
+3. `flask_crud/config.py`: Configuration file with various settings.
+4. `flask_crud/tests`: Contains the test files with various settings.
+5. `create_tables.py`: Script to setup and configure the database, however, running the app (after setting your db_url and other config variables) sets it up either ways.
+6. `requirements.txt`: File listing the required dependencies and their versions.
 
 
-# Write a REST API for the input of calories in Python
+## Usage Instructions
 
-### Task Instructions
-- API Users must be able to create an account and log in.
-- All API calls must be authenticated.
-- Implement at least three roles with different permission levels: a regular user would only be able to CRUD on their owned records, a user manager would be able to CRUD only users, and an admin would be able to CRUD all records and users.
-- Each entry has a date, time, text, and number of calories.
-- If the number of calories is not provided, the API should connect to a Calories API provider (for example, https://www.nutritionix.com) and try to get the number of calories for the entered meal.
-- User setting – Expected number of calories per day.
-- Each entry should have an extra boolean field set to true if the total for that day is less than the expected number of calories per day, otherwise should be false.
-- The API must be able to return data in the JSON format.
-- The API should provide filter capabilities for all endpoints that return a list of elements, as well should be able to support pagination.
-- Write unit and e2e tests.
-- Use any *Python* web framework
-- Use *SQLite* as the database
+To run the application locally, follow these steps:
 
-### Task Expectations
-- API Design Best Practices
-- Documentation of any assumptions or choices made and why
-- Links as citation to any article / code referred to or used
-- Unit tests covering the core calories logic
-- Appropriate exception handling and error messages
-- Code Quality - remove any unnecessary code, avoid large functions
-- Good commit history - we won’t accept a repo with a single giant commit 🙅‍♀️
+0. Initialize the python venv by running `python3 -m venv new_venv`
+- activate it with `source new_venv/bin/activate`
+1. Install the required dependencies by running `pip install -r requirements.txt`.
+2. Rename `.env.example` to `.env` and put your own details.
+3. Generate the database by running `python create_tables.py`.
+4. Start the Flask application by running `flask run`.
+5. Run the tests with `python -m unittest flask_crud.tests.unit.test_user`
+6. The application will be accessible at `http://localhost:4747`.
+7.When you're done working in the virtual environment, you can deactivate it by running the deactivate command `deactivate`
 
-### Task submission
-Using the [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow#following-github-flow) for assignment submission
-1. Creating a new branch 
-2. Raising a Pull Request for submission
-3. Using GitHub Discussions to ask any relevant questions regarding the project
-4. Final submission Checklist:
-- [ ] SUBMISSION.md in the repository / PR, with:
-  - [ ] commands to set up the repo (dependencies etc.)
-  - [ ] commands to run the test suite
-  - [ ] commands to run the API server
+## Dependencies
+
+The project's major dependencies are:
+
+- Flask==2.3.2
+- Flask-SQLAlchemy==3.0.0
+- requests==2.31.0
+
+The other dependencies are specified in the `requirements.txt` file.
+
+
+## Author
+
+The code in this repository was written by Maestroh1Git (David Amaku).
